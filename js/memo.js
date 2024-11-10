@@ -1,10 +1,14 @@
-$(".question").hide();
-$(".form").hide();
+var number = 1; // 問題数
+
+// $(".question").hide();
+// $(".form").hide();
+// $("h2").hide();
 
 /* スタートを押したときのアクション */
 $(".answer-button").on("click", function () {
     $(".question").show();
     $(".form").show();
+    $("h2").show();
     $(".answer").html("回答");
 });
 
@@ -18,3 +22,9 @@ $(".answer-button").on("click", function () {
     console.log(yearAll)
 });
 
+// 問題数を表示
+$(".answer-button").click(function () {
+    var noq = number ++;
+    console.log(noq);
+    $("h2").html("第" + noq + "問");
+});

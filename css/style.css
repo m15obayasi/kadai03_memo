@@ -13,12 +13,22 @@ h1 {
     font-family: 'M PLUS Rounded 1c', sans-serif;
 }
 
+/* 問題数 */
+    h2{
+    text-align: center;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    }
+
 /* ここに問題文を表示 */
 .question{
     border-top: solid 2px black;
     border-bottom: solid 2px black;
     padding:150px;
     margin-bottom: 20px;
+    text-align: center;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-size: 48px;
+    font-weight: bold;
 }
 
 /* 回答フォーム */
