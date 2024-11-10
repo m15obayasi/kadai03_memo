@@ -3,24 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="./js/memo.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>年表クイズ</title>
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
     <h1>年表クイズ</h1>
 
+    <div class="question"></div>
+
 <!-- numericはスマホ用。数字を入力する度にjqueryを実行 -->
     <div class="form">
-        <input type="text" inputmode="numeric" maxlength="1">
-        <input type="text" inputmode="numeric" maxlength="1">
-        <input type="text" inputmode="numeric" maxlength="1">
-        <input type="text" inputmode="numeric" maxlength="1">
+        <input type="text" id="y-1" inputmode="numeric" maxlength="1">
+        <input type="text" id="y-2" inputmode="numeric" maxlength="1">
+        <input type="text" id="y-3" inputmode="numeric" maxlength="1">
+        <input type="text" id="y-4" inputmode="numeric" maxlength="1">
         <span>　年</span>
     </div>
 
-    <div class="answer-button">回答！</div>
+    <div class="answer-button">
+        <div class="answer">スタート</div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="./js/memo.js"></script>
 
 </body>
 </html>
