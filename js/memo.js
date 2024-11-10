@@ -4,12 +4,20 @@ var number = 1; // 問題数
 // $(".form").hide();
 // $("h2").hide();
 
+// １つ目の要素だけ取り出したい……。
+var questions = [
+    ["AAAA","0"],
+    ["BBBB","0"]
+];
+
 /* スタートを押したときのアクション */
 $(".answer-button").on("click", function () {
     $(".question").show();
     $(".form").show();
     $("h2").show();
     $(".answer").html("回答");
+    var random = Math.floor(Math.random()*questions.length);
+    $(".question").html(questions[random]);
 });
 
 /* 入力した「年」を取得 */
@@ -25,6 +33,5 @@ $(".answer-button").on("click", function () {
 // 問題数を表示
 $(".answer-button").click(function () {
     var noq = number ++;
-    console.log(noq);
     $("h2").html("第" + noq + "問");
 });
