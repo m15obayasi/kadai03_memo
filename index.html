@@ -6,8 +6,16 @@
     <title>Document</title>
     <script src="./js/memo.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    
+    <h1>年表クイズ</h1>
+
+<!-- numericはスマホ用。数字を入力する度にjqueryを実行 -->
+    <input type="text" inputmode="numeric" maxlength="1" oninput="moveToNextInput(this)">
+    <input type="text" inputmode="numeric" maxlength="1" oninput="moveToNextInput(this)">
+    <input type="text" inputmode="numeric" maxlength="1" oninput="moveToNextInput(this)">
+    <input type="text" inputmode="numeric" maxlength="1" oninput="moveToNextInput(this)">
+
 </body>
 </html>
