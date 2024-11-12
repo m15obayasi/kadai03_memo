@@ -1,8 +1,8 @@
 var number = 1; // 問題数
 
-$(".question, .form, .answer, h2").hide();
+$(".question, .form, .answer, h2, h3, .judge").hide();
 
-// １つ目の要素だけ取り出したい……。
+// 問題一覧
 var questions = [
     ["「ニンテンドーDS」発売", "2004"],
     ["「ドラえもん」の声優が一新","2005"],
@@ -25,7 +25,7 @@ var questions = [
 
 /* スタートボタンを押したときのアクション */
 $(".start-button").on("click", function () {
-    $(".question, .form, .answer, h2").show();
+    $(".question, .form, .answer, h2, h3").show();
     $(".start-button").hide();
     $("h2").html("第" + number + "問");
 
@@ -50,6 +50,7 @@ $(".start-button").on("click", function () {
         random = Math.floor(Math.random() * questions.length);
         $(".question").html(questions[random][0]);
         console.log("問題の正解 = " + questions[random][1])
+        $(".judge").hide();
         /* 正解したら次の問題へ…… */
         number++;
             $("h2").html("第" + number + "問");
@@ -57,7 +58,8 @@ $(".start-button").on("click", function () {
         console.log("不正解")
         console.log("-----------")
         console.log("問題の正解 = " + questions[random][1])
+        $(".judge").fadeOut();
+        $(".judge").fadeIn();
     }
     });
-
 });
