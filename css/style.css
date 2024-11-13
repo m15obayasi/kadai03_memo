@@ -24,7 +24,6 @@ h1 {
     border-top: solid 2px black;
     border-bottom: solid 2px black;
     padding:100px;
-    margin-bottom: 20px;
     text-align: center;
     font-family: 'M PLUS Rounded 1c', sans-serif;
     font-size: 48px;
@@ -36,6 +35,7 @@ h1 {
     text-align: center;
     position: relative;
     font-family: 'M PLUS Rounded 1c', sans-serif;
+    margin-top: 30px;
 }
 
 /* 回答フォームの「年」の部分 */
@@ -55,7 +55,7 @@ input {
 }
 
 /* スタートボタン、回答ボタン、正誤画面 */
-.start, .answer, .judge{
+.start, .answer, .reload{
     align-content: center;
     text-align: center;
     margin-top: 30px;
@@ -64,21 +64,38 @@ input {
     width: 250px;
     height: 50px;
 }
-.start-button, .answer-button,.judge-button {
+
+.judge{
+    align-content: center;
+    text-align: center;
+    font-size: larger;
+    border: 2px solid black;
+    height: 50px;
+    margin-bottom: 30px;
+}
+
+.start-button, .answer-button, .reload-button {
     display: flex;
     justify-content: center;
     margin: 0 auto;
 }
-.start:hover, .answer:hover {
+.start:hover, .answer:hover, .reload:hover {
     background-color: #2f2a20;
     color: #fff;
 }
 
 /* 正誤ボタン */
 .judge {
-    margin-top:10px;
     border: 2px solid #990000;
     background-color: #990000;
     font-weight: bold;
     color: #EEEEEE;
+}
+
+.heart-temae{
+    color:#990000;
+}
+
+.heart{
+    font-size:30px;
 }

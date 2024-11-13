@@ -1,6 +1,7 @@
 var number = 1; // 問題数
+var miss = 5; // 不正解
 
-$(".question, .form, .answer, h2, h3, .judge").hide();
+$(".question, .form, .answer, h2, h3, .judge, .reload").hide();
 
 // 問題一覧
 var questions = [
@@ -32,6 +33,7 @@ $(".start-button").on("click", function () {
     /* 問題文を表示 */
     var random = Math.floor(Math.random() * questions.length);
     $(".question").html(questions[random][0]);
+    $(".heart").html(miss);
     console.log("問題の正解 = " + questions[random][1])
 
     /* 回答ボタンを押したときのアクション */
@@ -44,22 +46,37 @@ $(".start-button").on("click", function () {
     console.log("あなたの回答 = " + ansYear)
 
     /* 正誤判定 */
-        if (ansYear === questions[random][1]) {
-        console.log("正解！！")
-        console.log("-----------")
-        random = Math.floor(Math.random() * questions.length);
-        $(".question").html(questions[random][0]);
-        console.log("問題の正解 = " + questions[random][1])
-        $(".judge").hide();
+    if (ansYear === questions[random][1]) {
+    console.log("正解！！")
+    console.log("-----------")
+    random = Math.floor(Math.random() * questions.length);
+    $(".question").html(questions[random][0]);
+    console.log("問題の正解 = " + questions[random][1])
+    $(".judge").hide();
         /* 正解したら次の問題へ…… */
         number++;
-            $("h2").html("第" + number + "問");
-        } else {
-        console.log("不正解")
-        console.log("-----------")
-        console.log("問題の正解 = " + questions[random][1])
+        $("h2").html("第" + number + "問");
+    } else {
+    console.log("不正解")
+    console.log("-----------")
+    console.log("問題の正解 = " + questions[random][1])
+    miss--;
+    $(".heart").html(miss);
+    console.log(miss)    
+    $(".judge").fadeOut();
+    $(".judge").fadeIn();
+
+        /* ５問ミスで終了！ */
+        if (miss == 0) {
+        $(".start-button, .form, .answer, h2, h3").hide();
         $(".judge").fadeOut();
-        $(".judge").fadeIn();
+        $(".reload").show();
+        $(".question").html("クリアならず。残念！");
+        }
     }
     });
+});
+
+$(".reload-button").on("click", function () {
+    location.reload();
 });
