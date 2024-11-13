@@ -43,7 +43,7 @@ $(".start-button").on("click", function () {
 
     /* 回答内容を送信 */
     const ansYear = $("#y-1").val() + $("#y-2").val() + $("#y-3").val() + $("#y-4").val();
-    console.log("あなたの回答 = " + ansYear)
+        console.log("あなたの回答 = " + ansYear);
 
     /* 正誤判定 */
     if (ansYear === questions[random][1]) {
@@ -77,6 +77,7 @@ $(".start-button").on("click", function () {
     });
 });
 
+// リロードボタン
 $(".reload-button").on("click", function () {
     location.reload();
 });
