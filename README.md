@@ -6,7 +6,7 @@
 - 全部で10問出題されます。５万間違えると失格です。
 
 ## ③DEMO
-- https://m15obayasi.github.io/kadai02_janken_rich/
+- https://m15obayasi.github.io/kadai03_memo/
 
 ## ⑤工夫した点・こだわった点
 
