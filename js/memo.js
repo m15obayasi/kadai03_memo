@@ -34,48 +34,59 @@ $(".start-button").on("click", function () {
     var random = Math.floor(Math.random() * questions.length);
     $(".question").html(questions[random][0]);
     $(".heart").html(miss);
-    console.log("問題の正解 = " + questions[random][1])
+    console.log("問題の正解 = " + questions[random][1]);
 
     /* 回答ボタンを押したときのアクション */
     $(".answer-button").on("click", function () {
         $(".question, .form, h2").show();
         $(".answer").html("回答");
 
-    /* 回答内容を送信 */
-    const ansYear = $("#y-1").val() + $("#y-2").val() + $("#y-3").val() + $("#y-4").val();
+        /* 回答内容を送信 */
+        const ansYear = $("#y-1").val() + $("#y-2").val() + $("#y-3").val() + $("#y-4").val();
         console.log("あなたの回答 = " + ansYear);
+        localStorage.setItem("value", ansYear);
+        $("#y-1,#y-2,#y-3,#y-4").val("");
 
-    /* 正誤判定 */
-    if (ansYear === questions[random][1]) {
-    console.log("正解！！")
-    console.log("-----------")
-    random = Math.floor(Math.random() * questions.length);
-    $(".question").html(questions[random][0]);
-    console.log("問題の正解 = " + questions[random][1])
-    $(".judge").hide();
-        /* 正解したら次の問題へ…… */
-        number++;
-        $("h2").html("第" + number + "問");
-    } else {
-    console.log("不正解")
-    console.log("-----------")
-    console.log("問題の正解 = " + questions[random][1])
-    miss--;
-    $(".heart").html(miss);
-    console.log(miss)    
-    $(".judge").fadeOut();
-    $(".judge").fadeIn();
-
-        /* ５問ミスで終了！ */
-        if (miss == 0) {
-        $(".start-button, .form, .answer, h2, h3").hide();
-        $(".judge").fadeOut();
-        $(".reload").show();
-        $(".question").html("クリアならず。残念！");
+        /* 正誤判定 */
+        if (ansYear === questions[random][1]) {
+            console.log("正解！！")
+            console.log("-----------")
+            
+            random = Math.floor(Math.random() * questions.length);
+            $(".question").html(questions[random][0]);
+            console.log("問題の正解 = " + questions[random][1])
+            $(".judge").hide();
+            /* 正解したら次の問題へ…… */
+            number++;
+            $("h2").html("第" + number + "問");
+            localStorage.setItem("Key", number);
+            $(".list").append(number-1 + "：　　")
+            $(".list").append(ansYear + "年　　");
+        } else {
+            console.log("不正解")
+            console.log("-----------")
+            console.log("問題の正解 = " + questions[random][1])
+            miss--;
+            $(".heart").html(miss);
+            console.log(miss)
+            $(".judge").fadeOut();
+            $(".judge").fadeIn();
+            /* ５問ミスで終了！ */
+            if (miss == 0) {
+                $(".start-button, .form, .answer, h2, h3").hide();
+                $(".judge").fadeOut();
+                $(".reload").show();
+                $(".question").html("クリアならず。残念！");
+            }
         }
-    }
+        if (number == 11) {
+            $(".start-button, .form, .answer, h2, h3").hide();
+            $(".judge").fadeOut();
+            $(".reload").show();
+            $(".question").html("クリア！！合格！！");
+        }
+    })
     });
-});
 
 // リロードボタン
 $(".reload-button").on("click", function () {

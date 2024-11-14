@@ -99,3 +99,11 @@ input {
 .heart{
     font-size:30px;
 }
+
+ul{
+    list-style: none;
+}
+
+li{
+    margin-top: 30px;
+}
